@@ -801,12 +801,12 @@ REGLA CRÍTICA — VALORES REALES:
   NUNCA escribas placeholders como [hash], [ruta específica], [dominio] ni nada entre corchetes.
   Si un dato no existe en el bloque, escribe "No registrado en este análisis".
 Escribe las explicaciones en español
-R1 — CLASIFICA A PARTIR DE LOS DATOS, NUNCA DE LA CLASIFICACIÓN HEURÍSTICA PYTHON:
-  Orden de prioridad inamovible:
-    1. DETECCION_CAPE → autoridad máxima: si tiene valor, esa ES la familia. Punto.
-    2. Firmas de sev≥2 + TTPs MITRE → determinan el TIPO genérico cuando 1 y 2 están vacíos.
-    3. Señal heurística Python → SOLO si las tres fuentes anteriores están completamente vacías.
-  No existe ninguna circunstancia en que la heurística Python prevalezca sobre DETECCION_CAPE.
+R1 — CLASIFICA A PARTIR DE LOS DATOS, NO DE LA SEÑAL HEURÍSTICA:
+  Sigue este orden de prioridad descendente:
+    1. DETECCION_CAPE → máxima autoridad (motor propio de CAPE)
+    2. Firmas de severidad ≥ 2 + TTPs MITRE que las activan
+    3. Señal heurística Python → solo si las fuentes anteriores están vacías
+  Si la señal heurística contradice las evidencias directas, ignórala y explica por qué.
 
 R2 — SOLO VALORES QUE APARECEN EN LOS DATOS:
   Incorrecto: "El malware cifra archivos en [ruta]"
@@ -830,7 +830,7 @@ ESTRUCTURA DEL INFORME — Desarrolla TODAS las secciones en orden:
 - SHA256: copia el hash exacto (o "N/A" para análisis de URL)
 - MD5: copia el valor exacto (o "N/A" para análisis de URL)
 - Malscore: copia el valor exacto de "MALSCORE:"
-- Clasificación: resultado del VEREDICTO de la sección 0
+- Clasificación: familia o tipo según la regla R1
 - Objetivo operativo e impacto potencial: una frase basada exclusivamente en los datos
 
 ## 2. ANÁLISIS DE COMPORTAMIENTO
