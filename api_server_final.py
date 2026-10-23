@@ -1,13 +1,4 @@
-"""
-api_server_final.py — Servidor Flask para generación de informes IA
-Coloca este archivo en el mismo directorio que analizador_tfm_final.py
-
-Instalación (una vez):
-    sudo /home/nuria/llm/venv/bin/pip install flask
-
-Ejecución:
-    sudo /home/nuria/llm/venv/bin/python3 api_server_final.py
-"""
+"""Servidor Flask que sirve los informes generados por el analizador."""
 
 import os
 import sys
